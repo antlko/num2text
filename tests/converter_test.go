@@ -229,6 +229,38 @@ func TestNumberToOrdinalFullForm(t *testing.T) {
 			105,
 			"one hundred fifth",
 		},
+		{
+			20,
+			"twentieth",
+		},
+		{
+			30,
+			"thirtieth",
+		},
+		{
+			50,
+			"fiftieth",
+		},
+		{
+			80,
+			"eightieth",
+		},
+		{
+			180,
+			"one hundred eightieth",
+		},
+		{
+			10,
+			"tenth",
+		},
+		{
+			1055,
+			"one thousand fifty-fifth",
+		},
+		{
+			1000,
+			"one thousandth",
+		},
 	}
 
 	for _, test := range tests {
