@@ -33,4 +33,6 @@ num2text.ConvertToOrdinalFull(105)  // one hundred fifth
 
 ```go
 num2text.ConvertToNumber("ten thousand twelfth") // 10012
+num2text.ConvertToNumber("ten thousand twelve") // 10012
+num2text.ConvertToNumber("10012th") // 10012
 ```
