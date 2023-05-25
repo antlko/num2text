@@ -4,18 +4,12 @@ import "strings"
 
 var (
 	suffixes = map[string]string{
-		"one":     "first",
-		"two":     "second",
-		"three":   "third",
-		"five":    "fifth",
-		"eight":   "eighth",
-		"twelve":  "twelfth",
-		"-one":    "-first",
-		"-two":    "-second",
-		"-three":  "-third",
-		"-five":   "-fifth",
-		"-eight":  "-eighth",
-		"-twelve": "-twelfth",
+		"one":    "first",
+		"two":    "second",
+		"three":  "third",
+		"five":   "fifth",
+		"eight":  "eighth",
+		"twelve": "twelfth",
 	}
 	tensWords = []string{"", "", "twentie", "thirtie", "fortie", "fiftie", "sixtie", "seventie", "eightie", "ninetie"}
 )
@@ -37,7 +31,7 @@ func tensToWord(number int) string {
 	if ones == 0 {
 		return tensWords[tens]
 	} else {
-		return tensPlace[tens] + "-" + digitToWord(ones)
+		return tensPlace[tens] + " " + digitToWord(ones)
 	}
 }
 
@@ -88,14 +82,15 @@ func addOrdinalSuffix(word string) string {
 	s := getNumSuffix(word)
 	value, ok := suffixes[s]
 	if ok {
-		return strings.ReplaceAll(word, s, value)
+		lastIdx := strings.LastIndex(word, s)
+		return word[:lastIdx] + value
 	}
 	return word + "th"
 }
 
 func getNumSuffix(word string) string {
 	for r := len(word) - 1; r >= 0; r-- {
-		if word[r] == ' ' || word[r] == '-' {
+		if word[r] == ' ' {
 			return strings.TrimSpace(word[r:])
 		}
 	}

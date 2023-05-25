@@ -28,3 +28,9 @@ num2text.ConvertToOrdinalFull(999)  // nine hundred ninety-nine thousand nine hu
 num2text.ConvertToOrdinalFull(55)   // fifty-fifth
 num2text.ConvertToOrdinalFull(105)  // one hundred fifth
 ```
+
+<h4>Text to Number convertion</h4>
+
+```go
+num2text.ConvertToNumber("ten thousand twelfth")
+```
