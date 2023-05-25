@@ -24,8 +24,8 @@ num2text.ConvertToOrdinal(999)  // 999th
 ```go
 num2text.ConvertToOrdinalFull(1)    // first
 num2text.ConvertToOrdinalFull(2)    // second
-num2text.ConvertToOrdinalFull(999)  // nine hundred ninety-nine thousand nine hundred ninety-nineth
-num2text.ConvertToOrdinalFull(55)   // fifty-fifth
+num2text.ConvertToOrdinalFull(999)  // nine hundred ninety nine thousand nine hundred ninety nineth
+num2text.ConvertToOrdinalFull(55)   // fifty fifth
 num2text.ConvertToOrdinalFull(105)  // one hundred fifth
 ```
 
