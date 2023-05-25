@@ -32,5 +32,5 @@ num2text.ConvertToOrdinalFull(105)  // one hundred fifth
 <h4>Text to Number convertion</h4>
 
 ```go
-num2text.ConvertToNumber("ten thousand twelfth")
+num2text.ConvertToNumber("ten thousand twelfth") // 10012
 ```
