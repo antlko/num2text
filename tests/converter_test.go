@@ -199,7 +199,7 @@ func TestNumberToOrdinalFullForm(t *testing.T) {
 		},
 		{
 			54,
-			"fifty-fourth",
+			"fifty fourth",
 		},
 		{
 			13,
@@ -207,15 +207,15 @@ func TestNumberToOrdinalFullForm(t *testing.T) {
 		},
 		{
 			66,
-			"sixty-sixth",
+			"sixty sixth",
 		},
 		{
 			999,
-			"nine hundred ninety-nineth",
+			"nine hundred ninety nineth",
 		},
 		{
 			999999,
-			"nine hundred ninety-nine thousand nine hundred ninety-nineth",
+			"nine hundred ninety nine thousand nine hundred ninety nineth",
 		},
 		{
 			-112,
@@ -223,11 +223,15 @@ func TestNumberToOrdinalFullForm(t *testing.T) {
 		},
 		{
 			55,
-			"fifty-fifth",
+			"fifty fifth",
 		},
 		{
 			105,
 			"one hundred fifth",
+		},
+		{
+			101,
+			"one hundred first",
 		},
 		{
 			20,
@@ -255,7 +259,7 @@ func TestNumberToOrdinalFullForm(t *testing.T) {
 		},
 		{
 			1055,
-			"one thousand fifty-fifth",
+			"one thousand fifty fifth",
 		},
 		{
 			1000,
@@ -266,6 +270,323 @@ func TestNumberToOrdinalFullForm(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.result, func(t *testing.T) {
 			assert.Equal(t, test.result, num2text.ConvertToOrdinalFull(test.num))
+		})
+	}
+}
+
+func TestTexToNumber(t *testing.T) {
+	tests := []struct {
+		num   int
+		title string
+	}{
+		{
+			0,
+			"zero",
+		},
+		{
+			1,
+			"one",
+		},
+		{
+			9,
+			"nine",
+		},
+		{
+			11,
+			"eleven",
+		},
+		{
+			12,
+			"twelve",
+		},
+		{
+			15,
+			"fifteen",
+		},
+		{
+			21,
+			"twenty one",
+		},
+		{
+			44,
+			"44",
+		},
+		{
+			79,
+			"79",
+		},
+		{
+			99,
+			"99",
+		},
+		{
+			101,
+			"101",
+		},
+		{
+			123,
+			"123",
+		},
+		{
+			10,
+			"10",
+		},
+		{
+			19,
+			"19",
+		},
+		{
+			20,
+			"20",
+		},
+		{
+			30,
+			"30",
+		},
+		{
+			70,
+			"70",
+		},
+		{
+			87,
+			"87",
+		},
+		{
+			112,
+			"112",
+		},
+		{
+			1012,
+			"1012",
+		},
+		{
+			10012,
+			"10012",
+		},
+		{
+			999099,
+			"999099",
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.title, func(t *testing.T) {
+			text := num2text.ConvertToText(test.num)
+			assert.Equal(t, test.num, num2text.ConvertToNumber(text))
+		})
+	}
+}
+
+func TestOrdinalToNumber(t *testing.T) {
+	tests := []struct {
+		num   int
+		title string
+	}{
+		{
+			0,
+			"zero",
+		},
+		{
+			1,
+			"one",
+		},
+		{
+			9,
+			"nine",
+		},
+		{
+			11,
+			"eleven",
+		},
+		{
+			12,
+			"twelve",
+		},
+		{
+			15,
+			"fifteen",
+		},
+		{
+			21,
+			"twenty one",
+		},
+		{
+			44,
+			"44",
+		},
+		{
+			79,
+			"79",
+		},
+		{
+			99,
+			"99",
+		},
+		{
+			101,
+			"101",
+		},
+		{
+			123,
+			"123",
+		},
+		{
+			10,
+			"10",
+		},
+		{
+			19,
+			"19",
+		},
+		{
+			20,
+			"20",
+		},
+		{
+			30,
+			"30",
+		},
+		{
+			70,
+			"70",
+		},
+		{
+			87,
+			"87",
+		},
+		{
+			112,
+			"112",
+		},
+		{
+			1012,
+			"1012",
+		},
+		{
+			10012,
+			"10012",
+		},
+		{
+			999099,
+			"999099",
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.title, func(t *testing.T) {
+			text := num2text.ConvertToOrdinal(test.num)
+			assert.Equal(t, test.num, num2text.ConvertToNumber(text))
+		})
+	}
+}
+
+func TestFullOrdinalToNumber(t *testing.T) {
+	tests := []struct {
+		num   int
+		title string
+	}{
+		{
+			8,
+			"8",
+		},
+		{
+			88,
+			"88",
+		},
+		{
+			0,
+			"zero",
+		},
+		{
+			1,
+			"one",
+		},
+		{
+			9,
+			"nine",
+		},
+		{
+			11,
+			"eleven",
+		},
+		{
+			12,
+			"twelve",
+		},
+		{
+			15,
+			"fifteen",
+		},
+		{
+			21,
+			"twenty one",
+		},
+		{
+			44,
+			"44",
+		},
+		{
+			79,
+			"79",
+		},
+		{
+			99,
+			"99",
+		},
+		{
+			101,
+			"101",
+		},
+		{
+			123,
+			"123",
+		},
+		{
+			10,
+			"10",
+		},
+		{
+			19,
+			"19",
+		},
+		{
+			20,
+			"20",
+		},
+		{
+			30,
+			"30",
+		},
+		{
+			70,
+			"70",
+		},
+		{
+			87,
+			"87",
+		},
+		{
+			112,
+			"112",
+		},
+		{
+			1012,
+			"1012",
+		},
+		{
+			10012,
+			"10012",
+		},
+		{
+			999099,
+			"999099",
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.title, func(t *testing.T) {
+			text := num2text.ConvertToOrdinalFull(test.num)
+			assert.Equal(t, test.num, num2text.ConvertToNumber(text))
 		})
 	}
 }
